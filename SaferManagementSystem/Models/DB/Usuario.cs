@@ -14,6 +14,7 @@ namespace SaferManagementSystem.Models.DB
         public string Email { get; set; }
         public int SexoId { get; set; }
         public string Puesto { get; set; }
+        public string Posicion { get; set; }
         public int DepartamentoId { get; set; }
         public string Contraseña { get; set; }
         public string Privilegio { get; set; }
