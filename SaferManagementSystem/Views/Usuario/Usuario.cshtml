@@ -1,0 +1,131 @@
+﻿
+@model SaferManagementSystem.Models.DB.Usuario
+
+
+
+
+    @{
+        ViewData["Title"] = "Crear";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+    <div class="row" style="width:100%">
+        <div class="col-6">
+            <h2 class="text-primary">Registro de Usuarios</h2>
+        </div>
+        <div class="col-4 text-left">
+            <button type="button" class="btn btn-info form-control" data-toggle="modal" data-target="#myModal">Agregar nuevo usuario</button>
+        </div>
+    </div>
+
+    <div class="p-4 boder rounded bg-light">
+        <table id="tblData" class="table table-bordered table-responsive-xl" style="width:100%">
+            <thead class="thead-dar">
+                <tr class="table-info">
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Núm.Empleado</th>
+                    <th>E-mail</th>
+                    <th>Sexo</th>
+                    <th>Puesto</th>
+                    <th>Posición</th>
+                    <th>Departamento</th>
+                    <th>Privilegio</th>''
+                    <th></th>
+                </tr>
+            </thead>
+
+        </table>
+
+    </div>
+    <div>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-x1 modal-dialog-centered">
+                <div class="modal-content">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <h2 class="modal-title text-primary text-center">Agregar nuevo usuario</h2>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        </div>
+                        <div class="modal-body">
+                            <div style="padding-left:15%; padding-right:15%; padding-bottom:30px;">
+                                <div class="row p-3 border-0">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                </div>
+                                <div class="form-row col-md-12" style="padding-top:14px;">
+                                    <div class="form-group">
+                                        <label>Nombre</label>
+                                        <input asp-for="Nombre" class="form-control" placeholder="Nombre" />
+                                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Apellidos</label>
+                                        <input asp-for="Apellidos" class="form-control" placeholder="Apellidos" />
+                                        <span asp-validation-for="Apellidos" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Núm.Empleado</label>
+                                        <input asp-for="Numeroempleado" class="form-control" placeholder="NumEmpleado" />
+                                        <span asp-validation-for="Numeroempleado" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>E-mail</label>
+                                        <input asp-for="Email" class="form-control" placeholder="Email" />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sexo</label>
+                                        <input asp-for="SexoId" class="form-control" placeholder="Sexo" />
+                                        <span asp-validation-for="SexoId" class="text-danger"></span>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Puesto</label>
+                                        <input asp-for="Puesto" class="form-control" placeholder="Puesto" />
+                                        <span asp-validation-for="Puesto" class="text-danger"></span>
+                                    </div>
+                                           
+                                    @*<div class="form-group">
+                                        <label>Posición</label>
+                                        <select asp-for="Posicion" class="form-control">
+                                            <option value="true">Administrativo</option>
+                                            <option value="true">Operativo</option>
+                                        </select>
+                                    </div>*@
+                                                                      
+                                    <div class="form-group">
+                                        <label>Departamento</label>
+                                        <input asp-for="Departamento" class="form-control" placeholder="IdDepartamento" />
+                                        <span asp-validation-for="Departamento" class="text-danger"></span>
+                                    </div>
+                                                            
+                                    <div class="form-group">
+                                        <label>Privilegio</label>
+                                        <select asp-for="Privilegio" class="form-control">
+                                            <option value="1">Administrador</option>
+                                            <option value="2">Directivo</option>
+                                            <option value="3">Responsable de Seguimiento</option>
+                                            <option value="4">Usuario Simple</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" data-dismiss="modal">Guardar</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+        <script src="~/js/Usuarios.js"></script>
+    }
