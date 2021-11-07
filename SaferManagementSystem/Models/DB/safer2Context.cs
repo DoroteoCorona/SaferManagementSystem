@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -8,6 +9,8 @@ namespace SaferManagementSystem.Models.DB
 {
     public partial class safer2Context : DbContext
     {
+        
+
         public safer2Context()
         {
         }
@@ -35,6 +38,11 @@ namespace SaferManagementSystem.Models.DB
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=DESKTOP-PMTQBSN\\SQLEXPRESS; Database=safer2; Trusted_Connection=True;");
             }
+        }
+
+        internal Task ToListAsync()
+        {
+            throw new NotImplementedException();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -241,7 +249,7 @@ namespace SaferManagementSystem.Models.DB
             {
                 entity.ToTable("usuario");
 
-                entity.HasIndex(e => e.DepartamentoId, "IX_usuari_departamentoId")
+                entity.HasIndex(e => e.DepartamentoId, "IX_usuario_departamentoId")
                     .IsUnique();
 
                 entity.Property(e => e.UsuarioId).HasColumnName("usuarioId");
@@ -283,7 +291,7 @@ namespace SaferManagementSystem.Models.DB
                 entity.HasOne(d => d.Departamento)
                     .WithOne(p => p.Usuario)
                     .HasForeignKey<Usuario>(d => d.DepartamentoId)
-                    .HasConstraintName("FK_usuari_departamento_departamentoId");
+                    .HasConstraintName("FK_usuario_departamento_departamentoId");
             });
 
             OnModelCreatingPartial(modelBuilder);
